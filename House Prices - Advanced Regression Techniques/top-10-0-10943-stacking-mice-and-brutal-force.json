@@ -1,0 +1,14 @@
+{
+    "title": "House Prices - Advanced Regression Techniques",
+    "overview": "Overview\nDescription\nStart here if...\nYou have some experience with R or Python and machine learning basics. This is a perfect competition for data science students who have completed an online course in machine learning and are looking to expand their skill set before trying a featured competition. \n\n💡Getting Started Notebook\nTo get started quickly, feel free to take advantage of this starter notebook.\n\nCompetition Description\n\n\nAsk a home buyer to describe their dream house, and they probably won't begin with the height of the basement ceiling or the proximity to an east-west railroad. But this playground competition's dataset proves that much more influences price negotiations than the number of bedrooms or a white-picket fence.\n\nWith 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa, this competition challenges you to predict the final price of each home.\n\nPractice Skills\nCreative feature engineering \nAdvanced regression techniques like random forest and gradient boosting\n\nEvaluation\nGoal\nIt is your job to predict the sales price for each house. For each Id in the test set, you must predict the value of the SalePrice variable. \n\nMetric\nSubmissions are evaluated on Root-Mean-Squared-Error (RMSE) between the logarithm of the predicted value and the logarithm of the observed sales price. (Taking logs means that errors in predicting expensive houses and cheap houses will affect the result equally.)",
+    "type": "Regression",
+    "model": [
+        "Lightgbm",
+        "SupprtVectorMachine"
+    ],
+    "code": "top-10-0-10943-stacking-mice-and-brutal-force.ipynb",
+    "score": 0.10982,
+    "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "min score": 0.11989,
+    "medal": "Silver"
+}
