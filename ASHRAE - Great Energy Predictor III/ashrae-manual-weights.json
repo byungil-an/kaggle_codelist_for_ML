@@ -1,0 +1,15 @@
+{
+    "title": "ASHRAE - Great Energy Predictor III",
+    "overview": "Description\nQ: How much does it cost to cool a skyscraper in the summer?\nA: A lot! And not just in dollars, but in environmental impact.\n\nThankfully, significant investments are being made to improve building efficiencies to reduce costs and emissions. The question is, are the improvements working? That’s where you come in. Under pay-for-performance financing, the building owner makes payments based on the difference between their real energy consumption and what they would have used without any retrofits. The latter values have to come from a model. Current methods of estimation are fragmented and do not scale well. Some assume a specific meter type or don’t work with different building types.\n\nIn this competition, you’ll develop accurate models of metered building energy usage in the following areas: chilled water, electric, hot water, and steam meters. The data comes from over 1,000 buildings over a three-year timeframe. With better estimates of these energy-saving investments, large scale investors and financial institutions will be more inclined to invest in this area to enable progress in building efficiencies.\n\nAbout the Host\n\n\nFounded in 1894, ASHRAE serves to advance the arts and sciences of heating, ventilation, air conditioning refrigeration and their allied fields. ASHRAE members represent building system design and industrial process professionals around the world. With over 54,000 members serving in 132 countries, ASHRAE supports research, standards writing, publishing and continuing education - shaping tomorrow’s built environment today.\n\nBanner photo by Federico Beccari on Unsplash\n\nEvaluation\nEvaluation Metric\nThe evaluation metric for this competition is Root Mean Squared Logarithmic Error.\n\nThe RMSLE is calculated as\n\nε = sqrt((1 / n) * sum_{i=1}^n (log(p_i + 1) - log(a_i + 1))^2)\n\nWhere:\n\n\\\\(\\epsilon\\\\) is the RMSLE value (score)\n\\\\(n\\\\) is the total number of observations in the (public/private) data set,\n\\\\(p_i\\\\) is your prediction of target, and\n\\\\(a_i\\\\) is the actual target for \\\\(i\\\\).\n\\\\(\\log(x)\\\\) is the natural logarithm of \\\\(x\\\\)\n\nNote that not all rows will necessarily be scored.",
+    "type": "Time series",
+    "model": [
+        "Lightgbm",
+        " XGBoost",
+        " Catboost"
+    ],
+    "code": "ashrae-manual-weights.ipynb",
+    "score": 0.955,
+    "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "min score": 0.955,
+    "medal": "Silver"
+}
