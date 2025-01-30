@@ -7,8 +7,10 @@
         "Tensorflow"
     ],
     "code": "bowl-stabilize-coefs-cntrs-all5.ipynb",
+    "url": "https://www.kaggle.com/code/sergeifironov/bowl-stabilize-coefs-cntrs-all5",
     "score": 0.56,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.587,
     "min score": 0.555,
     "medal": "Silver"
 }

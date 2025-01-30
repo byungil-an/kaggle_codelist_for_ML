@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "dsb2019_v77_tr_dt_aug0_5_3tta_8a1f46.py",
+    "url": "https://www.kaggle.com/code/khahuras/dsb2019-v77-tr-dt-aug0-5-3tta-8a1f46",
     "score": 0.575,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.587,
     "min score": 0.555,
     "medal": "Gold"
 }

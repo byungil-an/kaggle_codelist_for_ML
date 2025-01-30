@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "code-bike-sharing-demand.ipynb",
+    "url": "https://www.kaggle.com/code/hayatosuzki/code-bike-sharing-demand",
     "score": 0.36213,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Gold"
 }

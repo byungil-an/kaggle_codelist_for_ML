@@ -7,8 +7,10 @@
         "XGBoost"
     ],
     "code": "detailed-examination-for-house-price-top-10.ipynb",
+    "url": "https://www.kaggle.com/code/darkside92/detailed-examination-for-house-price-top-10",
     "score": 0.07873,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.0,
     "min score": 0.11989,
     "medal": "Silver"
 }

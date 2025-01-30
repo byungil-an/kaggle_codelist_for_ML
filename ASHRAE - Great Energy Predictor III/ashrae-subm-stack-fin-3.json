@@ -8,8 +8,10 @@
         " Catboost"
     ],
     "code": "ashrae-subm-stack-fin-3.ipynb",
+    "url": "https://www.kaggle.com/code/gpamoukoff/ashrae-subm-stack-fin-3",
     "score": 0.947,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.931,
     "min score": 0.955,
     "medal": "Silver"
 }

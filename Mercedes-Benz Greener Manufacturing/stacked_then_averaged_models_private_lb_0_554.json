@@ -6,8 +6,10 @@
         "XGBoost"
     ],
     "code": "stacked_then_averaged_models_private_lb_0_554.py",
+    "url": "https://www.kaggle.com/code/adityakumarsinha/stacked-then-averaged-models-private-lb-0-554",
     "score": 0.58267,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.63045,
     "min score": 0.58215,
     "medal": "Silver"
 }

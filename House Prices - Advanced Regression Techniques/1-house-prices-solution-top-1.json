@@ -7,8 +7,10 @@
         "XGBoost"
     ],
     "code": "1-house-prices-solution-top-1.ipynb",
+    "url": "https://www.kaggle.com/code/jesucristo/1-house-prices-solution-top-1",
     "score": 0.10649,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.0,
     "min score": 0.11989,
     "medal": "Silver"
 }

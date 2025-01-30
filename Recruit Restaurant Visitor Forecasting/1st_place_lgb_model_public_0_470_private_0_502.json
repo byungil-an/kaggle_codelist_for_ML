@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "1st_place_lgb_model_public_0_470_private_0_502.py",
+    "url": "https://www.kaggle.com/code/pureheart/1st-place-lgb-model-public-0-470-private-0-502",
     "score": 0.47,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.46535,
     "min score": 0.47753,
     "medal": "Gold"
 }

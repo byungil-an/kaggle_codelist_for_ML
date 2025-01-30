@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "fold-cv-10-splits-pow-mean.ipynb",
+    "url": "https://www.kaggle.com/code/palajnc/fold-cv-10-splits-pow-mean",
     "score": 5.3387,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 4.6415,
     "min score": 5.4708,
     "medal": "Gold"
 }

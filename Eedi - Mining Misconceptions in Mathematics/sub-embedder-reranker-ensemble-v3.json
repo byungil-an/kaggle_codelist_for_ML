@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "sub-embedder-reranker-ensemble-v3.ipynb",
+    "url": "https://www.kaggle.com/code/tkyiws/sub-embedder-reranker-ensemble-v3",
     "score": 0.627,
     "evaluation": "MAP@K",
+    "max score": 0.67081,
     "min score": 0.5421,
     "medal": "Gold"
 }

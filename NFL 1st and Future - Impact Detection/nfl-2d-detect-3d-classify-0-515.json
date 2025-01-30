@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "nfl-2d-detect-3d-classify-0-515.ipynb",
+    "url": "https://www.kaggle.com/code/cdeotte/nfl-2d-detect-3d-classify-0-515",
     "score": 0.4931,
     "evaluation": "Confusion matrix",
+    "max score": 0.7469,
     "min score": 0.3561,
     "medal": "Silver"
 }

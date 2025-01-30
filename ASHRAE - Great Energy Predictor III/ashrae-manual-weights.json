@@ -8,8 +8,10 @@
         " Catboost"
     ],
     "code": "ashrae-manual-weights.ipynb",
+    "url": "https://www.kaggle.com/code/themonologue/ashrae-manual-weights",
     "score": 0.955,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.931,
     "min score": 0.955,
     "medal": "Silver"
 }

@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "eedi-pp040-ret15-exp345-341-348-multi-32b-ret-c015.ipynb",
+    "url": "https://www.kaggle.com/code/charmq/eedi-pp040-ret15-exp345-341-348-multi-32b-ret-c015",
     "score": 0.655,
     "evaluation": "MAP@K",
+    "max score": 0.67081,
     "min score": 0.5421,
     "medal": "Gold"
 }

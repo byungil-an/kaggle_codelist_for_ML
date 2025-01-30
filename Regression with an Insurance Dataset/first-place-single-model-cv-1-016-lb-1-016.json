@@ -6,8 +6,10 @@
         "XGBoost"
     ],
     "code": "first-place-single-model-cv-1-016-lb-1-016.ipynb",
+    "url": "https://www.kaggle.com/code/cdeotte/first-place-single-model-cv-1-016-lb-1-016",
     "score": 1.01909,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 1.01587,
     "min score": 1.02797,
     "medal": "Gold"
 }

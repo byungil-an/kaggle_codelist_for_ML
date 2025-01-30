@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "2gbm-3nn.ipynb",
+    "url": "https://www.kaggle.com/code/vk00st/2gbm-3nn",
     "score": 0.804,
     "evaluation": "AUC",
+    "max score": 0.818,
     "min score": 0.791,
     "medal": "Silver"
 }

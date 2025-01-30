@@ -6,8 +6,10 @@
         "XGBoost"
     ],
     "code": "4-12-gbm-xgb-stacking.ipynb",
+    "url": "https://www.kaggle.com/code/gyogyocat/4-12-gbm-xgb-stacking",
     "score": 1.02796,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 1.01587,
     "min score": 1.02797,
     "medal": "Silver"
 }

@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "bike-sharing-demand-starter-code-score-0-37235.ipynb",
+    "url": "https://www.kaggle.com/code/cuijamm/bike-sharing-demand-starter-code-score-0-37235",
     "score": 0.37235,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Silver"
 }

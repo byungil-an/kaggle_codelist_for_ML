@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "kfold-recall-and-reranker.ipynb",
+    "url": "https://www.kaggle.com/code/hinsay/kfold-recall-and-reranker",
     "score": 0.641,
     "evaluation": "MAP@K",
+    "max score": 0.67081,
     "min score": 0.5421,
     "medal": "Gold"
 }

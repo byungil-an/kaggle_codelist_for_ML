@@ -8,8 +8,10 @@
         "decisiontree"
     ],
     "code": "bike-sharing-demand-byc.ipynb",
+    "url": "https://www.kaggle.com/code/bobby2014king/bike-sharing-demand-byc",
     "score": 0.3548,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Gold"
 }

@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "top-1-predict-future-sales-features-lightgbm.ipynb",
+    "url": "https://www.kaggle.com/code/deinforcement/top-1-predict-future-sales-features-lightgbm",
     "score": 0.84017,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.73726,
     "min score": 0.84325,
     "medal": "Silver"
 }

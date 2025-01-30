@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "recall-reranker-logit-72b.ipynb",
+    "url": "https://www.kaggle.com/code/zhudong1949/recall-reranker-logit-72b",
     "score": 0.568,
     "evaluation": "MAP@K",
+    "max score": 0.67081,
     "min score": 0.5421,
     "medal": "Silver"
 }

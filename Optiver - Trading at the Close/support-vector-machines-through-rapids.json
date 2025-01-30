@@ -7,8 +7,10 @@
         "SupprtVectorMachine"
     ],
     "code": "support-vector-machines-through-rapids.ipynb",
+    "url": "https://www.kaggle.com/code/verracodeguacas/support-vector-machines-through-rapids",
     "score": 5.3388,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 4.6415,
     "min score": 5.4708,
     "medal": "Gold"
 }

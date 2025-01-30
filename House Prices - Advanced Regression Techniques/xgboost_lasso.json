@@ -6,8 +6,10 @@
         "XGBoost"
     ],
     "code": "xgboost_lasso.py",
+    "url": "https://www.kaggle.com/code/humananalog/xgboost-lasso",
     "score": 0.11623,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.0,
     "min score": 0.11989,
     "medal": "Silver"
 }

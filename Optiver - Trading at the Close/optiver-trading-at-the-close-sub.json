@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "optiver-trading-at-the-close-sub.ipynb",
+    "url": "https://www.kaggle.com/code/siddhvr/optiver-trading-at-the-close-sub",
     "score": 5.339,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 4.6415,
     "min score": 5.4708,
     "medal": "Gold"
 }

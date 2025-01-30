@@ -7,8 +7,10 @@
         "XGBoost"
     ],
     "code": "3models-add-feat-clip-time.ipynb",
+    "url": "https://www.kaggle.com/code/a763337092/3models-add-feat-clip-time",
     "score": 0.566,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.587,
     "min score": 0.555,
     "medal": "Silver"
 }

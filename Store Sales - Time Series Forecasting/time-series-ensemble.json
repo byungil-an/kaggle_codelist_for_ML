@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "time-series-ensemble.ipynb",
+    "url": "https://www.kaggle.com/code/eishkaran/time-series-ensemble",
     "score": 0.38129,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.37741,
     "min score": 0.39228,
     "medal": "Silver"
 }

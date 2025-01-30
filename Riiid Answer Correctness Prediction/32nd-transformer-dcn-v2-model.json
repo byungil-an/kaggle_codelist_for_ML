@@ -6,8 +6,10 @@
         "Tensorflow"
     ],
     "code": "32nd-transformer-dcn-v2-model.ipynb",
+    "url": "https://www.kaggle.com/code/nadare/32nd-transformer-dcn-v2-model",
     "score": 0.807,
     "evaluation": "AUC",
+    "max score": 0.818,
     "min score": 0.791,
     "medal": "Silver"
 }

@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "kernel77d7dbc37e.ipynb",
+    "url": "https://www.kaggle.com/code/suvinlee/kernel77d7dbc37e",
     "score": 0.36154,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Gold"
 }

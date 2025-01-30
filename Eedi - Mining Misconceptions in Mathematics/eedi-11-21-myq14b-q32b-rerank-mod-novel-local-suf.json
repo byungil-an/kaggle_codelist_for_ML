@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "eedi-11-21-myq14b-q32b-rerank-mod-novel-local-suf.ipynb",
+    "url": "https://www.kaggle.com/code/threerabbits/eedi-11-21-myq14b-q32b-rerank-mod-novel-local-suf",
     "score": 0.67081,
     "evaluation": "MAP@K",
+    "max score": 0.67081,
     "min score": 0.5421,
     "medal": "Gold"
 }

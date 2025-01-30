@@ -8,8 +8,10 @@
         "Catboost"
     ],
     "code": "k-fold-time-series-split-w-selective-ensemble.ipynb",
+    "url": "https://www.kaggle.com/code/whitgroves/k-fold-time-series-split-w-selective-ensemble",
     "score": 4.7237,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 4.6415,
     "min score": 5.4708,
     "medal": "Gold"
 }

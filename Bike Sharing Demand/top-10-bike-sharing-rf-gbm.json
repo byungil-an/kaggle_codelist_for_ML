@@ -7,8 +7,10 @@
         "Gradientboost"
     ],
     "code": "top-10-bike-sharing-rf-gbm.ipynb",
+    "url": "https://www.kaggle.com/code/mohitsital/top-10-bike-sharing-rf-gbm",
     "score": 0.35542,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Gold"
 }

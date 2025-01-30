@@ -7,8 +7,10 @@
         "Gradientboost"
     ],
     "code": "s-sekido-bike-sharing-demand-report.ipynb",
+    "url": "https://www.kaggle.com/code/shotasekido/s-sekido-bike-sharing-demand-report",
     "score": 0.35139,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Gold"
 }

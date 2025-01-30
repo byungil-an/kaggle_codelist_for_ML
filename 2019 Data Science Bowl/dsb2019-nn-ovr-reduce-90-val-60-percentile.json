@@ -8,8 +8,10 @@
         "Lightgbm"
     ],
     "code": "dsb2019-nn-ovr-reduce-90-val-60-percentile.ipynb",
+    "url": "https://www.kaggle.com/code/hidehisaarai1213/dsb2019-nn-ovr-reduce-90-val-60-percentile",
     "score": 0.559,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.587,
     "min score": 0.555,
     "medal": "Silver"
 }

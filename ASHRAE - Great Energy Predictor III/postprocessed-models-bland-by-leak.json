@@ -6,8 +6,10 @@
         "Original"
     ],
     "code": "postprocessed-models-bland-by-leak.ipynb",
+    "url": "https://www.kaggle.com/code/patrick0302/postprocessed-models-bland-by-leak",
     "score": 0.945,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.931,
     "min score": 0.955,
     "medal": "Silver"
 }

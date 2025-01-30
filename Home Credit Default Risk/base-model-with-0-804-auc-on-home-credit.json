@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "base-model-with-0-804-auc-on-home-credit.ipynb",
+    "url": "https://www.kaggle.com/code/hikmetsezen/base-model-with-0-804-auc-on-home-credit",
     "score": 0.80448,
     "evaluation": "AUC",
+    "max score": 0.81724,
     "min score": 0.80447,
     "medal": "Silver"
 }

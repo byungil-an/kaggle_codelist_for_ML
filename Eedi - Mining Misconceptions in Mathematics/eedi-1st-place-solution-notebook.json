@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "eedi-1st-place-solution-notebook.ipynb",
+    "url": "https://www.kaggle.com/code/conjuring92/eedi-1st-place-solution-notebook",
     "score": 0.643,
     "evaluation": "MAP@K",
+    "max score": 0.67081,
     "min score": 0.5421,
     "medal": "Gold"
 }

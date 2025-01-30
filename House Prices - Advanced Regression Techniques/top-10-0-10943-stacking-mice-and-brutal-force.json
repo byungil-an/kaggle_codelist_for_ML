@@ -7,8 +7,10 @@
         "SupprtVectorMachine"
     ],
     "code": "top-10-0-10943-stacking-mice-and-brutal-force.ipynb",
+    "url": "https://www.kaggle.com/code/agehsbarg/top-10-0-10943-stacking-mice-and-brutal-force",
     "score": 0.10982,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.0,
     "min score": 0.11989,
     "medal": "Silver"
 }

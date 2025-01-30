@@ -9,8 +9,10 @@
         "Catboost"
     ],
     "code": "cmi-tuning-ensemble-of-solutions.ipynb",
+    "url": "https://www.kaggle.com/code/batprem/cmi-tuning-ensemble-of-solutions",
     "score": 0.497,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.501,
     "min score": 0.497,
     "medal": "Silver"
 }

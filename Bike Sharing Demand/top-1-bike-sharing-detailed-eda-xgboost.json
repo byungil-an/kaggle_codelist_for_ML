@@ -6,8 +6,10 @@
         "XGBoost"
     ],
     "code": "top-1-bike-sharing-detailed-eda-xgboost.ipynb",
+    "url": "https://www.kaggle.com/code/guosue/top-1-bike-sharing-detailed-eda-xgboost",
     "score": 0.36319,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Gold"
 }

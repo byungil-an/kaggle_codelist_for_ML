@@ -7,8 +7,10 @@
         "Lightgbm"
     ],
     "code": "first-place-solution-kaggle-predict-future-sales.ipynb",
+    "url": "https://www.kaggle.com/code/larjeck/first-place-solution-kaggle-predict-future-sales",
     "score": 0.75426,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.73726,
     "min score": 0.84325,
     "medal": "Silver"
 }

@@ -6,8 +6,10 @@
         "Keras"
     ],
     "code": "blender_leak_validation_inception.py",
+    "url": "https://www.kaggle.com/code/wittmannf/blender-leak-validation-inception",
     "score": 0.948,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.931,
     "min score": 0.955,
     "medal": "Silver"
 }

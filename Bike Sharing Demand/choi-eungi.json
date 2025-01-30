@@ -7,8 +7,10 @@
         "Gradientboost"
     ],
     "code": "choi-eungi.ipynb",
+    "url": "https://www.kaggle.com/code/eungichoi/choi-eungi",
     "score": 0.36385,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Silver"
 }

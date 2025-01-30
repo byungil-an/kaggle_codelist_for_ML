@@ -6,8 +6,10 @@
         "XGBoost"
     ],
     "code": "optiver-trading-at-the-close-inference.ipynb",
+    "url": "https://www.kaggle.com/code/gunesevitan/optiver-trading-at-the-close-inference",
     "score": 5.3351,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 4.6415,
     "min score": 5.4708,
     "medal": "Gold"
 }

@@ -6,8 +6,10 @@
         "XGBoost"
     ],
     "code": "xgboost-bayes-opt-with-tidymodels.R",
+    "url": "https://www.kaggle.com/code/gomes555/xgboost-bayes-opt-with-tidymodels",
     "score": 0.00044,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.0,
     "min score": 0.11989,
     "medal": "Gold"
 }

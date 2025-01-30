@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "team-tara-submission-2-stage-3d.ipynb",
+    "url": "https://www.kaggle.com/code/kyoshioka47/team-tara-submission-2-stage-3d",
     "score": 0.5696,
     "evaluation": "Confusion matrix",
+    "max score": 0.7469,
     "min score": 0.3561,
     "medal": "Gold"
 }

@@ -6,8 +6,10 @@
         "Riiidanswer"
     ],
     "code": "riiid-model-submission-4th-place-public-version.ipynb",
+    "url": "https://www.kaggle.com/code/letranduckinh/riiid-model-submission-4th-place-public-version",
     "score": 0.815,
     "evaluation": "AUC",
+    "max score": 0.818,
     "min score": 0.791,
     "medal": "Gold"
 }

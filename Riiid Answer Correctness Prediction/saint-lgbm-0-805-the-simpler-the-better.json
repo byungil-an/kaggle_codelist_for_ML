@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "saint-lgbm-0-805-the-simpler-the-better.ipynb",
+    "url": "https://www.kaggle.com/code/abdessalemboukil/saint-lgbm-0-805-the-simpler-the-better",
     "score": 0.805,
     "evaluation": "AUC",
+    "max score": 0.818,
     "min score": 0.791,
     "medal": "Silver"
 }

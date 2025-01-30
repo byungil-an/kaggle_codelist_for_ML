@@ -8,8 +8,10 @@
         "Catboost"
     ],
     "code": "top-5-pub-to-top-53-priv-convert-disaster.ipynb",
+    "url": "https://www.kaggle.com/code/khoongweihao/top-5-pub-to-top-53-priv-convert-disaster",
     "score": 0.556,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.587,
     "min score": 0.555,
     "medal": "Silver"
 }

@@ -8,8 +8,10 @@
         "Catboost"
     ],
     "code": "demnaymatngu.ipynb",
+    "url": "https://www.kaggle.com/code/hienmynguyen17/demnaymatngu",
     "score": 0.498,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.501,
     "min score": 0.497,
     "medal": "Gold"
 }

@@ -9,8 +9,10 @@
         "Catboost"
     ],
     "code": "multi-model-feature-importance-analysis.ipynb",
+    "url": "https://www.kaggle.com/code/k14herine/multi-model-feature-importance-analysis",
     "score": 0.498,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.501,
     "min score": 0.497,
     "medal": "Gold"
 }

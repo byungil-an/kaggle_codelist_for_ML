@@ -9,8 +9,10 @@
         "Catboost"
     ],
     "code": "cmi-base-500-xgb-dart-finalday-v3.ipynb",
+    "url": "https://www.kaggle.com/code/hideyukizushi/cmi-base-500-xgb-dart-finalday-v3",
     "score": 0.5,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.501,
     "min score": 0.497,
     "medal": "Gold"
 }

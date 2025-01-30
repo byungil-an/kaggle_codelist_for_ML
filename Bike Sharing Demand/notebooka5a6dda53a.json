@@ -8,8 +8,10 @@
         "Lightgbm"
     ],
     "code": "notebooka5a6dda53a.ipynb",
+    "url": "https://www.kaggle.com/code/wangshu0514/notebooka5a6dda53a",
     "score": 0.36347,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Silver"
 }

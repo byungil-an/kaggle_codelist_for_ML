@@ -7,8 +7,10 @@
         "XGBoost"
     ],
     "code": "how-i-made-top-0-3-on-a-kaggle-competition.ipynb",
+    "url": "https://www.kaggle.com/code/lavanyashukla01/how-i-made-top-0-3-on-a-kaggle-competition",
     "score": 0.11769,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.0,
     "min score": 0.11989,
     "medal": "Silver"
 }

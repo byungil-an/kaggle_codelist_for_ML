@@ -6,8 +6,10 @@
         "Randomforest"
     ],
     "code": "9-mercedes-with-recursive-feature-elimination.ipynb",
+    "url": "https://www.kaggle.com/code/dmkravtsov/9-mercedes-with-recursive-feature-elimination",
     "score": 0.58381,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.63045,
     "min score": 0.58215,
     "medal": "Silver"
 }

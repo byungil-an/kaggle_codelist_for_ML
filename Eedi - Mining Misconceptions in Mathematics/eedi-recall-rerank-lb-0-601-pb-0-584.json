@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "eedi-recall-rerank-lb-0-601-pb-0-584.ipynb",
+    "url": "https://www.kaggle.com/code/yannan90/eedi-recall-rerank-lb-0-601-pb-0-584",
     "score": 0.60187,
     "evaluation": "MAP@K",
+    "max score": 0.67081,
     "min score": 0.5421,
     "medal": "Gold"
 }

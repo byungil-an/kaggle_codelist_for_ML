@@ -9,8 +9,10 @@
         "Decisiontree"
     ],
     "code": "bike-sharing-demand-model-comparisons.ipynb",
+    "url": "https://www.kaggle.com/code/sumn2u/bike-sharing-demand-model-comparisons",
     "score": 0.36092,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Gold"
 }

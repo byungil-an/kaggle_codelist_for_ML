@@ -6,8 +6,10 @@
         "Pytorch"
     ],
     "code": "rsna-sub-final.ipynb",
+    "url": "https://www.kaggle.com/code/haqishen/rsna-sub-final",
     "score": 0.1833,
     "evaluation": "Weighted multi-label logarithmic loss",
+    "max score": 0.1787,
     "min score": 0.4219,
     "medal": "Gold"
 }

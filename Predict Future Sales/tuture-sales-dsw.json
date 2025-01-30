@@ -7,8 +7,10 @@
         "Lightgbm"
     ],
     "code": "tuture-sales-dsw.ipynb",
+    "url": "https://www.kaggle.com/code/wasjaip/tuture-sales-dsw",
     "score": 0.79614,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.73726,
     "min score": 0.84325,
     "medal": "Silver"
 }

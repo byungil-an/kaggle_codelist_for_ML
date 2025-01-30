@@ -8,8 +8,10 @@
         "Catboost"
     ],
     "code": "beginners-prediction-top3.ipynb",
+    "url": "https://www.kaggle.com/code/marto24/beginners-prediction-top3",
     "score": 0.05553,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.0,
     "min score": 0.11989,
     "medal": "Silver"
 }

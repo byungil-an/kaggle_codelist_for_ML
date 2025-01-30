@@ -7,8 +7,10 @@
         "Gradientboost"
     ],
     "code": "bike-sharing-demand-237325.ipynb",
+    "url": "https://www.kaggle.com/code/praveenmadhiyazhagan/bike-sharing-demand-237325",
     "score": 0.35542,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.33756,
     "min score": 0.3901,
     "medal": "Gold"
 }

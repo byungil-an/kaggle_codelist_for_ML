@@ -8,8 +8,10 @@
         "Catboost"
     ],
     "code": "elo-merchant-category-recommendation.ipynb",
+    "url": "https://www.kaggle.com/code/greylivingstone/elo-merchant-category-recommendation",
     "score": 3.67656,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 3.61285,
     "min score": 3.67895,
     "medal": "Silver"
 }

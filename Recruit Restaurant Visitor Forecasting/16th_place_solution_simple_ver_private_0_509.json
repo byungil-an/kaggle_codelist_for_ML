@@ -6,8 +6,10 @@
         "XGBoost"
     ],
     "code": "16th_place_solution_simple_ver_private_0_509.R",
+    "url": "https://www.kaggle.com/code/rsakata/16th-place-solution-simple-ver-private-0-509",
     "score": 0.47138,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.46535,
     "min score": 0.47753,
     "medal": "Silver"
 }

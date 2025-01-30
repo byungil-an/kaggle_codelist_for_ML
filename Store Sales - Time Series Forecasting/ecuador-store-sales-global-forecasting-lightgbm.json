@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "ecuador-store-sales-global-forecasting-lightgbm.ipynb",
+    "url": "https://www.kaggle.com/code/chongzhenjie/ecuador-store-sales-global-forecasting-lightgbm",
     "score": 0.37984,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 0.37741,
     "min score": 0.39228,
     "medal": "Silver"
 }

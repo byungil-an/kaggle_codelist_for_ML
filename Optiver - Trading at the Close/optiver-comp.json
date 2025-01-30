@@ -6,8 +6,10 @@
         "Lightgbm"
     ],
     "code": "optiver-comp.ipynb",
+    "url": "https://www.kaggle.com/code/dorianglon/optiver-comp",
     "score": 4.6443,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 4.6415,
     "min score": 5.4708,
     "medal": "Gold"
 }

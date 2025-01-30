@@ -7,8 +7,10 @@
         "Chainer"
     ],
     "code": "37th-place-solution.ipynb",
+    "url": "https://www.kaggle.com/code/toshik/37th-place-solution",
     "score": 0.576,
     "evaluation": "Quadratic weghted kappa",
+    "max score": 0.587,
     "min score": 0.555,
     "medal": "Gold"
 }
