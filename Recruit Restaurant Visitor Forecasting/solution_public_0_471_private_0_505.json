@@ -6,10 +6,8 @@
         "Lightgbm"
     ],
     "code": "solution_public_0_471_private_0_505.py",
-    "url": "https://www.kaggle.com/code/plantsgo/solution-public-0-471-private-0-505",
     "score": 0.471,
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
-    "max score": 0.46535,
     "min score": 0.47753,
     "medal": "Silver"
 }
