@@ -11,5 +11,6 @@
     "evaluation": "Weighted multi-label logarithmic loss",
     "max score": 0.1787,
     "min score": 0.4219,
+    "relative score": 0.707236842105263,
     "medal": "Silver"
 }

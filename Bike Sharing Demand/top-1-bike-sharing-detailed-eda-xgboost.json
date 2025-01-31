@@ -11,5 +11,6 @@
     "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
     "max score": 0.33756,
     "min score": 0.3901,
+    "relative score": 0.5121811952797869,
     "medal": "Gold"
 }

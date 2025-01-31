@@ -11,5 +11,6 @@
     "evaluation": "MAP@K",
     "max score": 0.67081,
     "min score": 0.5421,
+    "relative score": 1.0,
     "medal": "Gold"
 }
