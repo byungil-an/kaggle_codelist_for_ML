@@ -1,0 +1,16 @@
+{
+    "title": "Regression with an Insurance Dataset",
+    "overview": "Overview\nWelcome to the 2024 Kaggle Playground Series! We plan to continue in the spirit of previous playgrounds, providing interesting an approachable datasets for our community to practice their machine learning skills, and anticipate a competition each month.\n\nYour Goal: The objectives of this challenge is to predict insurance premiums based on various factors.\n\nEvaluation\nSubmissions are evaluated using the Root Mean Squared Logarithmic Error (RMSLE).",
+    "type": "Regression",
+    "model": [
+        "XGBoost"
+    ],
+    "code": "first-place-single-model-cv-1-016-lb-1-016.ipynb",
+    "url": "https://www.kaggle.com/code/cdeotte/first-place-single-model-cv-1-016-lb-1-016",
+    "score": 1.01909,
+    "evaluation": "Regression Error(MAE,R^2,RMSE,RMSLE)",
+    "max score": 1.01587,
+    "min score": 1.02797,
+    "relative score": 0.7338842975206611,
+    "medal": "Gold"
+}

@@ -1,0 +1,27 @@
+# 環境変数・APIキー（絶対にpushしない）
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# データファイル（大きいので除外）
+data/
+*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 出力ファイル
+*_output.md
+submission*.csv
+*.db
+
+# 仮想環境
+.venv/

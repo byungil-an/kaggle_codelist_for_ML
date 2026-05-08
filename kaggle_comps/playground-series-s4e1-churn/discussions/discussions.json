@@ -1,0 +1,111 @@
+[
+  {
+    "doc_id": "s4e1_disc_001",
+    "comp_name": "Binary Classification with a Bank Churn Dataset Playground Series - Season 4, Episode 1",
+    "domain": "churn",
+    "doc_type": "discussion",
+    "title": "3rd Place Solution: CatBoost Encoding Galore",
+    "content": "このコンペで高スコアを獲得するために決定打となったのは、主に以下の3点です。
+				・徹底した「CatBoost Encoding」の活用
+				通常はエンコードしない数値型（推定年収や年齢）も整数化してターゲットエンコーディングの対象とし、さらにTF-IDF＋SVDの結果までもエンコードするという、徹底した「エンコーディングの極致」が性能を大きく引き上げました。
+				・データの順序を考慮したエンコーディング
+				CatBoostのエンコーディングはデータの順序に敏感であるため、has_time=Trueを設定し、「オリジナルのデータセットをコンペ用データの前」に結合して学習させたことが最良の結果をもたらしました。
+				・多分割（30-fold）のクロスバリデーション
+				データサイズが大きい場合、フォールド数を増やす（5回から30回へ）ことでアンサンブルの効果が高まり、スコアの底上げに有効でした。",
+    "score_rank": null,
+    "votes": 99,
+    "url": "https://www.kaggle.com/competitions/playground-series-s4e1/writeups/iqbal-syah-akbar-3rd-place-solution-catboost-encod"
+  },
+  {
+    "doc_id": "s4e1_disc_002",
+    "comp_name": "Binary Classification with a Bank Churn Dataset Playground Series - Season 4, Episode 1",
+    "domain": "churn",
+    "doc_type": "discussion",
+    "title": "2nd place solution",
+    "content": "最大のポイントは、「オリジナルデータ（本物のデータ）との一致を確認するフラグ」を特徴量として生成したことです。
+				合成データの隙を突く:
+					このコンペのデータは合成データでしたが、特定のカラムの組み合わせ（サブセット）が「オリジナルデータにそのまま存在するかどうか」を確認し、存在すれば 1、なければ 0 というバイナリ特徴量を作成しました。
+				ターゲット分布の乖離を利用:
+					この「一致フラグ」が立てられたデータ群は、全体の平均的な離脱率（約0.21）とは大きく異なる分布（例：特定条件下で離脱率0.70など）を示しました。これが強力な予測の手がかりとなりました。
+				自動化された特徴量選択:
+					あらゆるカラムの組み合わせ（1つ〜10個の組み合わせ）を網羅的に試し、約1000個の一致フラグを生成。その中から遺伝的アルゴリズムを用いて、LGBMに有効な50個程度を絞り込みました。
+			🛠️ モデル構成と手法の概要
+				・特徴量エンジニアリング:
+					基本特徴量に加え、上記の一致フラグ（サブセット一致確認）を大量に投入。
+					[CustomerId, Surname] の組み合わせも一致確認に使用。
+					公開されていた「Feeling lucky trick（リークに近い性質を持つ特定の処理）」も併用。
+				・使用モデル:
+					LightGBM (LGBM): 遺伝的アルゴリズムで選別した50個の特徴量を使用。
+					AutoGluon: 全特徴量を投入し、モデル側で重要度を判断させる。
+				・最終アンサンブル:
+					(LGBM + AutoGluon) / 2 の単純な平均（Simple Ensemble）。",
+    "score_rank": null,
+    "votes": 81,
+    "url": "https://www.kaggle.com/competitions/playground-series-s4e1/writeups/lukaszl-2nd-place-solution"
+  },
+  {
+    "doc_id": "s4e1_disc_003",
+    "comp_name": "Binary Classification with a Bank Churn Dataset Playground Series - Season 4, Episode 1",
+    "domain": "churn",
+    "doc_type": "discussion",
+    "title": "Brief Description of the Features",
+    "content": "データセットの概要と特徴量
+					このデータセットは、顧客が銀行を解約するかどうか（Exited）を予測するバイナリ分類タスクです。主な特徴量は以下の通りです。
+					ID系: id（一意）とCustomerID（重複あり）。
+					地理・性別: Geography（3ヶ国）とGender（男女）。
+					数値指標: Credit Score（信用スコア）、Age（年齢、一部に小数点あり）、Tenure（取引期間）、Balance（残高）、Estimated Salary（推定年収）。
+					銀行利用状況: NumOfProducts（利用製品数：1〜4）、HasCrCard（カード所持）、IsActiveMember（アクティブ層か）。
+				・結論：有効なアプローチと解決策
+					ディスカッション内でのやり取りから、特に有効とされる手法を以下の3点にまとめます。
+				1. カテゴリ変数の適切なエンコーディング
+					Geography（国）: LabelEncoder ではなく OneHotEncoder を使用すべきです。地理的データに順序関係（0 < 1 < 2）を持たせると、モデルが誤った解釈をする可能性があるためです。
+					Gender: 二値（Male/Female）のため、単純なバイナリ変換（Label Binarizer）で十分です。
+				2. ノイズの除去とデータクリーニング
+					Age（年齢）: 32.44 や 36.44 といった不自然な浮動小数点（アノマリー）が存在します。これらは整数に 四捨五入/切り捨て 处理を行うのが適切です。
+					Surname（名字）: 2,700種類以上のユニーク値があり、そのままOne-Hotエンコーディングすると次元が爆発します。予測精度への寄与が低いため、分析から除外する か、特徴量削減（次元圧縮）を検討するのが現実的です。
+				3. 提出形式の注意（評価指標への対応）
+					このコンペティションでは、単なる 0 または 1 の判定ではなく、「離脱する確率（Prediction Probability）」 を提出する必要があります。そのため、モデルの出力には predict_proba 等を用いるのが有効です。",
+    "score_rank": null,
+    "votes": 71,
+    "url": "http://kaggle.com/competitions/playground-series-s4e1/discussion/465045
+  },
+  {
+    "doc_id": "s4e1_disc_004",
+    "comp_name": "Binary Classification with a Bank Churn Dataset Playground Series - Season 4, Episode 1",
+    "domain": "churn",
+    "doc_type": "discussion",
+    "title": "Tips to brush up your notebooks",
+    "content": "・何が有効であったか
+					結論として、ノートブックを「単なるコードの集まり」から「質の高いレポート」に昇華させるために、以下の3点が特に有効であるとされています。
+				・「情報の整理」: タブ化や折りたたみ、出力の非表示により、読者が重要な結果（グラフや考察）に集中できるようにすること。
+				・「アクセシビリティ（使い勝手）」: 常に表示される目次やリンクを活用し、ストレスなく巨大なノートブックをナビゲートできるようにすること。
+				・「適切な視覚化」: 単に色を塗るだけでなく、カラーユニバーサルデザイン（色覚多様性への配慮）や、読みやすいパステルカラー、適切なフォントサイズを選択し、「誰にとっても読みやすい」状態を作ること。
+				単にモデルの精度が高いだけでなく、こうしたプレゼンテーションの工夫が、コミュニティ内での評価（Upvote）や、自分自身の振り返りにおいて非常に重要であると結論付けられています。",
+    "score_rank": null,
+    "votes": 63,
+    "url": "https://www.kaggle.com/competitions/playground-series-s4e1/discussion/467353"
+  },
+  {
+    "doc_id": "s4e1_disc_005",
+    "comp_name": "Binary Classification with a Bank Churn Dataset Playground Series - Season 4, Episode 1",
+    "domain": "churn",
+    "doc_type": "discussion",
+    "title": "Onboarding materials and references",
+    "content": "何が有効であったか（スコア向上のポイント）
+					投稿者やコメント欄でのやり取りに基づくと、特に以下の3点が有効なアプローチとして強調されています。
+				・適切な「CV（交差検証）スキーム」の構築
+					パブリック・リーダーボード（暫定順位表）のスコアに一喜一憂せず、手元のデータで正しくモデルを評価できる仕組みを作ることが最優先であるとされています。
+				・特徴量エンジニアリング（Feature Engineering）
+					単にモデルを回すだけでなく、データの背景を理解し、予測に寄与する新たな特徴量を作成・選択することがスコアアップの鍵となります。
+				・標準的なパイプラインの確立
+					以下の4つのステップを体系化し、改善を繰り返すプロセスが有効です。
+					・データエンジニアリング: 前処理と特徴量作成。
+					・モデルトレーニング: 単一モデルの学習。
+					・結果分析: 各モデルの予測傾向の把握。
+					・アンサンブル: 複数のモデル（XGBoost, LightGBM, RandomForest等）を組み合わせる。
+				結論として、初心者は目先の順位よりも、「再現性のある評価手法（CV）の確立」と「体系的なパイプラインでの試行錯誤」に集中することが、最終的に最も有効な学習と成果に繋がると述べられています。",
+    "score_rank": null,
+    "votes": 55,
+    "url": "https://www.kaggle.com/competitions/playground-series-s4e1/discussion/464866"
+  }
+]
