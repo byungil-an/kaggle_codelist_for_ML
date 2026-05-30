@@ -1,0 +1,28 @@
+{
+  "_comments": {
+    "target_comp":     "参加中のコンペ名。Claudeへのプロンプトに渡すのみ（BigQuery検索には使わない）",
+    "source_comps":    "参照する過去コンペ名のリスト（複数可）。空リスト [] の場合は domain で全コンペ横断検索",
+    "domain":          "ドメイン種別。source_comps が空のときの検索キーにもなる。選択肢: churn / finance / ecommerce / health / sales",
+    "extra_keywords":  "追加検索キーワード（不要なら null）。例: [\"XGBoost\", \"SHAP\"]",
+    "question":        "Claudeへの質問文",
+    "basebook":        "このフォルダ内のベースコードファイル名（.ipynb or .py）。指定すると既存コードへの改善案を提示。ファイルがなければ null を設定"
+  },
+
+  "target_comp": "Binary Classification with a Bank Dataset Playground Series - Season 5, Episode 8",
+
+  "source_comps": [
+    "Binary Classification with a Bank Churn Dataset Playground Series - Season 4, Episode 1"
+  ],
+
+  "domain": "churn",
+
+  "extra_keywords": null,
+
+  "question": "現在S5E8に参加中です。LightGBMのベースラインを用意しました。次にどの特徴量を追加すればスコアが上がりますか？具体的なPythonコードで教えてください。",
+  
+  "basebook": "ps-s5e8-lightgb-add-feat_v1.ipynb"
+
+  "target_score": "0.97027"
+  
+  "current_score": "0.97676"
+}

@@ -1,4 +1,4 @@
-"""
+﻿"""
 local_rag.py
 SQLiteを使ったクラウドなし版RAGです。
 GCPの設定が完了する前の動作確認やローカルテストに使ってください。
@@ -187,7 +187,7 @@ def get_advice(
 3. このドメインで効く手法とその理由
 """
     resp = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=2500,
         messages=[{"role": "user", "content": prompt}],
     )

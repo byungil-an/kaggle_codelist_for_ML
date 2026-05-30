@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Kaggle RAG System — Data Flow (Mermaid)</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  @page { size: A4 landscape; margin: 8mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+  body { background: #f8f9fb; padding: 8mm; }
+
+  .title-bar {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    border-radius: 8px;
+    padding: 7px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .title-bar h1 { color: #fff; font-size: 14px; font-weight: 700; }
+  .title-bar .sub { color: #a0aec0; font-size: 9px; }
+
+  .flow-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border: 1.5px solid #e2e8f0;
+  }
+  .flow-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .badge {
+    font-size: 8px;
+    background: #edf2f7;
+    color: #718096;
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-weight: 500;
+  }
+  .badge.blue  { background: #bee3f8; color: #2b6cb0; }
+  .badge.green { background: #c6f6d5; color: #276749; }
+  .badge.red   { background: #fed7d7; color: #c53030; }
+
+  .mermaid { display: flex; justify-content: center; }
+
+  .footer {
+    background: #edf2f7;
+    border-radius: 6px;
+    padding: 5px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5px;
+    color: #718096;
+    margin-top: 4px;
+  }
+</style>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#ebf8ff',
+      primaryTextColor: '#2c5282',
+      primaryBorderColor: '#3182ce',
+      lineColor: '#718096',
+      secondaryColor: '#fff5f5',
+      tertiaryColor: '#f0fff4',
+      background: '#ffffff',
+      fontSize: '11px'
+    },
+    flowchart: { curve: 'basis', padding: 12 }
+  });
+</script>
+</head>
+<body>
+
+<div class="title-bar">
+  <h1>⚙ Kaggle RAG System — データフロー図 (Mermaid)</h1>
+  <span class="sub">GitHub × GCP (BigQuery) × Claude API × Claude Code　|　2026.05</span>
+</div>
+
+<!-- ① 投入フロー -->
+<div class="flow-section">
+  <div class="flow-title">
+    📥 投入フロー
+    <span class="badge blue">notebook → GitHub → ローカル処理 → BigQuery</span>
+  </div>
+  <div class="mermaid">
+flowchart LR
+    subgraph GH["🐙 GitHub Repository"]
+        NB["📓 winner解法\n.ipynb / .py"]
+        META["🗂 JSON メタ\n4項目手入力"]
+        DISC["💬 discussions\n.json"]
+    end
+
+    subgraph LOCAL["💻 ローカル / Claude Code"]
+        ENRICH["🔄 auto_enrich.py\ntype/eval/domain 補完"]
+        LOAD["📤 load_repo_to_bq.py\nnotebook 要約 → BQ 投入"]
+        ANALYZE["🔬 code_analyzer.py\n特徴量ロジック抽出"]
+    end
+
+    subgraph CLAUDE["🧠 Claude API"]
+        CA1["JSON 自動補完"]
+        CA2["コード要約生成"]
+    end
+
+    subgraph GCP["☁ GCP"]
+        BQ[("🗄 BigQuery\nkaggle_rag\nFULLTEXT 索引")]
+        GCS["💾 Cloud Storage\nraw コード"]
+    end
+
+    NB      -->|"git clone / pull"| LOAD
+    META    -->|"git clone / pull"| ENRICH
+    DISC    -->|"git clone / pull"| LOAD
+    ENRICH  -->|"API 呼び出し"| CA1
+    CA1     -->|"補完済み JSON"| META
+    META    -->|"git push"| GH
+    LOAD    -->|"API 呼び出し"| CA2
+    CA2     -->|"要約テキスト"| BQ
+    LOAD    -->|"メタ + 要約\n500件チャンク"| BQ
+    LOAD    -->|"raw コード"| GCS
+    ANALYZE -->|"特徴量構造"| BQ
+
+    classDef gh      fill:#f0f4f8,stroke:#24292e,color:#2d3748
+    classDef local   fill:#fffaf0,stroke:#dd6b20,color:#7b341e
+    classDef claude  fill:#fff5f5,stroke:#e53e3e,color:#742a2a
+    classDef gcp     fill:#ebf8ff,stroke:#3182ce,color:#2c5282
+
+    class NB,META,DISC gh
+    class ENRICH,LOAD,ANALYZE local
+    class CA1,CA2 claude
+    class BQ,GCS gcp
+  </div>
+</div>
+
+<!-- ② RAG アドバイスフロー -->
+<div class="flow-section">
+  <div class="flow-title">
+    🤖 RAG アドバイスフロー
+    <span class="badge red">partipatingcomp.json → BigQuery 検索 → Claude API → notebook 改善</span>
+  </div>
+  <div class="mermaid">
+flowchart LR
+    subgraph CONFIG["⚙ 参加コンペ設定\npartipatingcomp/"]
+        CFG["📋 partipatingcomp.json\ntarget_comp\nsource_comps\ndomain / basebook"]
+        BASE["📓 basebook.ipynb\n改善元コード"]
+    end
+
+    subgraph LOCAL2["💻 ローカル / Claude Code"]
+        ADVISOR["🤖 rag_advisor.py\n設定読み込み\nbasebook 読み込み"]
+        SEARCH["🔍 hybrid_search.py\nFULLTEXT\n複数 KW 横断検索"]
+    end
+
+    subgraph GCP2["☁ GCP / BigQuery"]
+        BQ2[("🗄 kaggle_rag\ncode_summary\ndiscussion\ncode_meta")]
+    end
+
+    subgraph CLAUDE2["🧠 Claude API"]
+        CA3["改善アドバイス生成\nベースコード改善案\n特徴量コード提案"]
+    end
+
+    subgraph OUTPUT["📄 アウトプット"]
+        ADVICE["advice_output.md\n特徴量コード\nモデル改善案\n注意点"]
+        IMPROVED["📈 improved.ipynb\nLGB + XGB Ensemble\n8種特徴量"]
+    end
+
+    subgraph KAGGLE["🏆 Kaggle"]
+        SUBMIT["🚀 Submit\nsubmission.csv"]
+        LB["🎖 Leaderboard\n目標: 上位 10%\nCV AUC 0.974+"]
+    end
+
+    CFG   -->|"target/source/domain\n設定読み込み"| ADVISOR
+    BASE  -->|"コードセル抽出\n(.ipynb → Python)"| ADVISOR
+    ADVISOR -->|"comp_name / domain\nキーワード"| SEARCH
+    SEARCH  -->|"FULLTEXT SQL\nWHERE comp_name=?\nOR domain=?"| BQ2
+    BQ2     -->|"上位 12 件\n(votes 順 + doc_type 優先)"| SEARCH
+    SEARCH  -->|"コンテキスト\n文字列 (build_context)"| ADVISOR
+    ADVISOR -->|"basebook + 知識\nプロンプト生成"| CA3
+    CA3     -->|"改善コード\n+ 注意点"| ADVICE
+    ADVICE  -->|"コード反映"| IMPROVED
+    IMPROVED -->|"submission.csv"| SUBMIT
+    SUBMIT   -->|"スコア確認"| LB
+
+    classDef config  fill:#f0fff4,stroke:#38a169,color:#276749
+    classDef local   fill:#fffaf0,stroke:#dd6b20,color:#7b341e
+    classDef gcp     fill:#ebf8ff,stroke:#3182ce,color:#2c5282
+    classDef claude  fill:#fff5f5,stroke:#e53e3e,color:#742a2a
+    classDef out     fill:#faf5ff,stroke:#805ad5,color:#44337a
+    classDef kaggle  fill:#f0fff4,stroke:#38a169,color:#22543d
+
+    class CFG,BASE config
+    class ADVISOR,SEARCH local
+    class BQ2 gcp
+    class CA3 claude
+    class ADVICE,IMPROVED out
+    class SUBMIT,LB kaggle
+  </div>
+</div>
+
+<div class="footer">
+  <span>📌 source_comps に値あり → comp_name で BQ 絞り込み　|　source_comps 空 → domain で全コンペ横断検索　|　basebook あり → 既存コード改善提案　|　basebook なし → ゼロから提案</span>
+  <span>byungil-an / kaggle_codelist_for_ML</span>
+</div>
+
+</body>
+</html>

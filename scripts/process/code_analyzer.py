@@ -1,4 +1,4 @@
-"""
+﻿"""
 code_analyzer.py
 GCSに保存されたwinner解法コードをClaude APIで解析し、
 特徴量エンジニアリングのロジックを抽出してBigQueryに格納します。
@@ -51,7 +51,7 @@ JSONのみを返してください。他のテキストは一切含めないで�
 """
     try:
         resp = claude_client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=1500,
             messages=[{"role": "user", "content": prompt}],
         )

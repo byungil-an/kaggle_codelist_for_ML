@@ -1,0 +1,8 @@
+{
+    "model": [
+        "Keras",
+        "ptyorch",
+        "Lightgbm",
+        "Catboost"
+    ]
+}

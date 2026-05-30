@@ -25,7 +25,7 @@ from google.cloud import bigquery
 bq_client     = bigquery.Client(project=PROJECT_ID)
 claude_client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
-BASE_URL = "https://github.com/byungil-an/kaggle_codelist_for_ML/tree/main"
+BASE_URL = "https://github.com/byungil-an/kaggle_codelist_for_ML/tree/main/kaggle_comps"
 
 
 def summarize_code(code_text: str, meta: dict) -> str:
@@ -44,7 +44,7 @@ def summarize_code(code_text: str, meta: dict) -> str:
 """
     try:
         resp = claude_client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=1000,
             messages=[{"role": "user", "content": prompt}],
         )

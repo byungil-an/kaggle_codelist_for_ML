@@ -1,0 +1,7 @@
+{
+    "model": [
+        "Pytorch",
+        "Catboost",
+        "Lightgbm"
+    ]
+}

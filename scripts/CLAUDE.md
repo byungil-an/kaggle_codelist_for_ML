@@ -97,7 +97,7 @@ python compete/baseline_s5e8.py
 ## コーディングルール
 - 環境変数は scripts/ の1つ上（リポジトリルート）の .env を読み込む
 - BigQueryのテーブル参照は TABLE_REF 定数で統一する
-- Claude APIは常に claude-sonnet-4-20250514 を使う
+- Claude APIは常に claude-sonnet-4-6 を使う
 - エラーは try-except で捕捉してログを出力し処理を継続する
 - BQへの投入は500件ずつチャンクに分ける
 

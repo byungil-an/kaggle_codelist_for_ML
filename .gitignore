@@ -25,3 +25,6 @@ submission*.csv
 
 # 仮想環境
 .venv/
+
+# ターゲットコンペ設定
+scripts\partipatingcomp

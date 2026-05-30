@@ -1,0 +1,7 @@
+{
+    "model": [
+        "linearregression",
+        "Randomforest",
+        "Gradientboost"
+    ]
+}

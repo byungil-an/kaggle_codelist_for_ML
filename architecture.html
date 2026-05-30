@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Kaggle RAG System — Architecture</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
+
+  body {
+    width: 210mm;
+    height: 297mm;
+    background: #f8f9fb;
+    display: flex;
+    flex-direction: column;
+    padding: 10mm 10mm 8mm;
+    gap: 0;
+  }
+
+  /* ── タイトル ── */
+  .title-bar {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .title-bar h1 { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; }
+  .title-bar .subtitle { color: #a0aec0; font-size: 9px; }
+
+  /* ── メインレイアウト ── */
+  .main { display: grid; grid-template-columns: 1fr 1.6fr 1fr; grid-template-rows: auto auto; gap: 6px; flex: 1; }
+
+  /* ── カード共通 ── */
+  .card {
+    border-radius: 8px;
+    padding: 8px 10px;
+    border: 1.5px solid transparent;
+    position: relative;
+  }
+  .card-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .card-title .icon { font-size: 13px; }
+  .item {
+    font-size: 8px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+  .item-label {
+    font-size: 7.5px;
+    font-weight: 600;
+    color: #718096;
+    margin: 5px 0 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  /* ── 各コンポーネント色 ── */
+  .github   { background: #f0f4f8; border-color: #24292e; }
+  .github .card-title { color: #24292e; }
+  .github .item { background: #e2e8f0; color: #2d3748; }
+
+  .local    { background: #fffaf0; border-color: #dd6b20; }
+  .local .card-title { color: #c05621; }
+  .local .item { background: #feebc8; color: #7b341e; }
+  .local .item.highlight { background: #f6ad55; color: #7b341e; font-weight: 600; }
+
+  .gcp      { background: #ebf8ff; border-color: #3182ce; }
+  .gcp .card-title { color: #2b6cb0; }
+  .gcp .item { background: #bee3f8; color: #2c5282; }
+  .gcp .item.future { background: #e9d8fd; color: #553c9a; border: 1px dashed #9f7aea; }
+
+  .claude-api { background: #fff5f5; border-color: #e53e3e; }
+  .claude-api .card-title { color: #c53030; }
+  .claude-api .item { background: #fed7d7; color: #742a2a; }
+
+  .kaggle   { background: #f0fff4; border-color: #38a169; }
+  .kaggle .card-title { color: #276749; }
+  .kaggle .item { background: #c6f6d5; color: #22543d; }
+
+  .output   { background: #faf5ff; border-color: #805ad5; }
+  .output .card-title { color: #553c9a; }
+  .output .item { background: #e9d8fd; color: #44337a; }
+
+  /* ── フロー行 ── */
+  .flow-row {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: stretch;
+    gap: 4px;
+    margin-top: 2px;
+  }
+
+  /* ── 矢印レイヤー ── */
+  .arrows-overlay {
+    grid-column: 1 / -1;
+    position: relative;
+    height: 26px;
+    margin: 2px 0;
+  }
+  .arrow-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 100%;
+  }
+  .arrow-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 7.5px;
+    color: #4a5568;
+    background: #edf2f7;
+    border-radius: 12px;
+    padding: 3px 8px;
+    border: 1px solid #cbd5e0;
+    white-space: nowrap;
+  }
+  .arrow-item .arr { font-size: 10px; color: #718096; }
+
+  /* ── ボトム行 ── */
+  .bottom-row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr 1fr;
+    gap: 6px;
+  }
+
+  /* ── ステップバッジ ── */
+  .step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    font-size: 7.5px;
+    font-weight: 700;
+    color: #fff;
+    background: #718096;
+    flex-shrink: 0;
+  }
+  .step.s1 { background: #e53e3e; }
+  .step.s2 { background: #dd6b20; }
+  .step.s3 { background: #d69e2e; }
+  .step.s4 { background: #38a169; }
+  .step.s5 { background: #3182ce; }
+  .step.s6 { background: #805ad5; }
+
+  /* ── フッター ── */
+  .footer {
+    margin-top: 5px;
+    background: #edf2f7;
+    border-radius: 6px;
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-legend {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 7.5px;
+    color: #4a5568;
+  }
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .footer-note { font-size: 7px; color: #a0aec0; }
+
+  /* ── 区切り線付きラベル ── */
+  .section-divider {
+    font-size: 7px;
+    color: #a0aec0;
+    text-align: center;
+    margin: 3px 0 2px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 6.5px;
+    background: #e2e8f0;
+    color: #4a5568;
+    border-radius: 3px;
+    padding: 1px 4px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+  .badge.future { background: #e9d8fd; color: #553c9a; }
+</style>
+</head>
+<body>
+
+<!-- タイトル -->
+<div class="title-bar">
+  <h1>⚙ Kaggle RAG System — Architecture Overview</h1>
+  <span class="subtitle">GitHub × GCP (BigQuery) × Claude API × Claude Code　|　2026.05</span>
+</div>
+
+<!-- 上段3カラム -->
+<div class="main">
+
+  <!-- 左：GitHub -->
+  <div class="card github">
+    <div class="card-title"><span class="icon">🐙</span> GitHub Repository</div>
+    <div class="item-label">知識ベース（コード管理）</div>
+    <div class="item">📁 kaggle_comps/ (18コンペ+)</div>
+    <div class="item">📓 winner解法 .ipynb / .py</div>
+    <div class="item">🗂 JSONメタデータ (4項目手入力)</div>
+    <div class="item">💬 discussions.json</div>
+    <div class="item-label">参加コンペ設定</div>
+    <div class="item">⚙ partipatingcomp/</div>
+    <div class="item">📋 partipatingcomp.json</div>
+    <div class="item">📓 basebook.ipynb (改善元)</div>
+  </div>
+
+  <!-- 中央：ローカル / Claude Code -->
+  <div class="card local">
+    <div class="card-title"><span class="icon">💻</span> ローカル環境 / Claude Code CLI</div>
+
+    <div class="item-label">① データ処理・投入</div>
+    <div class="item">🔄 auto_enrich.py — JSON を Claude API で自動補完 (type / evaluation / domain)</div>
+    <div class="item">📤 load_repo_to_bq.py — notebook 要約 → BigQuery へ一括投入</div>
+    <div class="item">🔬 code_analyzer.py — コードから特徴量ロジックを構造化抽出</div>
+
+    <div class="item-label">② RAG 検索・アドバイス生成</div>
+    <div class="item highlight">🔍 hybrid_search.py — BigQuery FULLTEXT 複数キーワード横断検索</div>
+    <div class="item highlight">🤖 rag_advisor.py — 検索結果 → Claude API → advice_output.md</div>
+    <div class="item">🏅 medal_advisor.py — 複数コンペ横断で提案生成</div>
+
+    <div class="item-label">③ コンペ実行</div>
+    <div class="item">🚀 baseline_s5e8.py — LightGBM ベースライン実行</div>
+    <div class="item">📈 ps-s5e8-lightgb-improved.ipynb — 改善版 (8種特徴量 + LGB+XGB Ensemble)</div>
+  </div>
+
+  <!-- 右：Claude API -->
+  <div class="card claude-api">
+    <div class="card-title"><span class="icon">🧠</span> Claude API (Anthropic)</div>
+    <div class="item-label">呼び出し元 → 用途</div>
+    <div class="item">auto_enrich →<br>JSON 自動補完</div>
+    <div class="item">load_repo_to_bq →<br>コード要約生成</div>
+    <div class="item">rag_advisor →<br>特徴量コード提案<br>モデル改善アドバイス</div>
+    <div class="item">medal_advisor →<br>複数コンペ横断提案</div>
+    <div class="item-label">使用モデル</div>
+    <div class="item">claude-sonnet-4-6</div>
+  </div>
+
+  <!-- フロー矢印行 -->
+  <div class="arrows-overlay">
+    <div class="arrow-box">
+      <div class="arrow-item"><span class="step s1">1</span> git push / pull <span class="arr">⇄</span> GitHub</div>
+      <div class="arrow-item"><span class="step s2">2</span> auto_enrich → Claude API <span class="arr">→</span> JSON 補完</div>
+      <div class="arrow-item"><span class="step s3">3</span> load_repo_to_bq → BigQuery 投入 <span class="arr">→</span></div>
+      <div class="arrow-item"><span class="step s4">4</span> rag_advisor → BQ 検索 → Claude → advice <span class="arr">→</span></div>
+      <div class="arrow-item"><span class="step s5">5</span> improved.ipynb → Kaggle submit <span class="arr">→</span></div>
+    </div>
+  </div>
+
+  <!-- 下段 -->
+  <div class="bottom-row">
+
+    <!-- 左：GCP -->
+    <div class="card gcp">
+      <div class="card-title"><span class="icon">☁</span> GCP</div>
+      <div class="item-label">BigQuery (中核)</div>
+      <div class="item">📊 データセット: kaggle_rag</div>
+      <div class="item">🗃 テーブル: doc_id / comp_name / domain / doc_type / content / votes / url</div>
+      <div class="item">🔎 FULLTEXT インデックス</div>
+      <div class="item-label">Cloud Storage</div>
+      <div class="item">💾 raw コード一時保存</div>
+      <div class="item-label">将来実装</div>
+      <div class="item future">⏰ Cloud Run — 自動収集 Cron ジョブ <span class="badge future">Week3+</span></div>
+    </div>
+
+    <!-- 中央：データフロー詳細 -->
+    <div class="card output">
+      <div class="card-title"><span class="icon">🔄</span> データフロー詳細</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-top:2px;">
+        <div>
+          <div class="item-label">📥 投入フロー</div>
+          <div class="item">① notebook 配置</div>
+          <div class="item">② JSON 4項目手入力</div>
+          <div class="item">③ auto_enrich.py<br>→ Claude でtype/eval/domain補完</div>
+          <div class="item">④ load_repo_to_bq.py<br>→ 要約+メタをBQへ</div>
+          <div class="item">⑤ git push</div>
+        </div>
+        <div>
+          <div class="item-label">🤖 RAG フロー</div>
+          <div class="item">① partipatingcomp.json 設定<br>(target/source/domain)</div>
+          <div class="item">② rag_advisor.py 実行<br>→ basebook.ipynb 読込</div>
+          <div class="item">③ BQ FULLTEXT 検索<br>(domain キーワード)</div>
+          <div class="item">④ Claude API で<br>改善コード生成</div>
+          <div class="item">⑤ advice_output.md<br>→ notebook 反映</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右：Kaggle -->
+    <div class="card kaggle">
+      <div class="card-title"><span class="icon">🏆</span> Kaggle</div>
+      <div class="item-label">現在参加中</div>
+      <div class="item">🎯 S5E8 — Binary Classification<br>Bank Marketing Dataset</div>
+      <div class="item">📏 評価指標: ROC-AUC</div>
+      <div class="item">🎖 目標: 上位10%以内</div>
+      <div class="item-label">参照ソースコンペ</div>
+      <div class="item">🔗 S4E1 — Bank Churn<br>(ドメイン: churn)</div>
+      <div class="item-label">ベースライン</div>
+      <div class="item">CV AUC: 0.974094<br>→ 改善版で更新予定</div>
+    </div>
+
+  </div><!-- /bottom-row -->
+
+</div><!-- /main -->
+
+<!-- フッター -->
+<div class="footer">
+  <div class="footer-legend">
+    <span style="font-size:8px; font-weight:700; color:#4a5568; margin-right:4px;">凡例：</span>
+    <div class="legend-item"><div class="legend-dot" style="background:#24292e"></div>GitHub</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#dd6b20"></div>ローカル / Claude Code</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3182ce"></div>GCP (BigQuery)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#e53e3e"></div>Claude API</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#38a169"></div>Kaggle</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#805ad5"></div>データフロー</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#9f7aea; opacity:0.5;"></div>将来実装 (破線)</div>
+  </div>
+  <div class="footer-note">byungil-an / kaggle_codelist_for_ML　|　Claude Code + BigQuery RAG System</div>
+</div>
+
+</body>
+</html>

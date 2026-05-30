@@ -1,4 +1,4 @@
-"""
+﻿"""
 medal_advisor.py
 複数の過去コンペを横断参照して、メダル獲得に向けた
 包括的なアドバイスを生成します。
@@ -112,7 +112,7 @@ def get_medal_advice(
 """
 
     resp = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=3000,
         system="あなたはKaggleメダル獲得を支援するAIです。日本語で回答してください。",
         messages=[{"role": "user", "content": prompt}],

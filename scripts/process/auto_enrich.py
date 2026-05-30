@@ -1,4 +1,4 @@
-"""
+﻿"""
 auto_enrich.py
 リポジトリ内のJSONファイルを読み込み、
 type / evaluation / domain を Claude API で自動補完して上書き保存します。
@@ -50,7 +50,7 @@ JSONのみを返してください。他のテキストは一切含めないで�
 """
     try:
         resp = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=200,
             messages=[{"role": "user", "content": prompt}],
         )

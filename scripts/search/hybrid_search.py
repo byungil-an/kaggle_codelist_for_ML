@@ -43,7 +43,7 @@ DEFAULT_KEYWORDS = [
 
 
 def hybrid_search(
-    source_comp: str,
+    source_comp: str | None,
     domain: str | None = None,
     extra_keywords: list[str] | None = None,
     limit_per_kw: int = 3,
@@ -53,7 +53,7 @@ def hybrid_search(
     複数キーワードで検索し、重複除去して統合結果を返します。
 
     Args:
-        source_comp:    参照するコンペ名
+        source_comp:    参照するコンペ名（None の場合は全コンペ横断）
         domain:         ドメイン（例: "churn"）
         extra_keywords: 追加キーワード
         limit_per_kw:   キーワードごとの取得件数
@@ -67,7 +67,10 @@ def hybrid_search(
     seen: set[str] = set()
 
     for kw in keywords:
-        for r in search(query=kw, comp_name=source_comp, limit=limit_per_kw):
+        # source_comp が指定されているときは comp_name だけで絞り込む（domain は使わない）
+        # source_comp が None のときは domain でBigQueryを絞り込む（横断検索）
+        bq_domain = domain if source_comp is None else None
+        for r in search(query=kw, comp_name=source_comp, domain=bq_domain, limit=limit_per_kw):
             if r["title"] not in seen:
                 seen.add(r["title"])
                 all_docs.append(r)

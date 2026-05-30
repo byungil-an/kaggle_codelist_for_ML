@@ -1,0 +1,8 @@
+{
+    "model": [
+        "Randomforest",
+        "Gradientboost",
+        "Bagging",
+        "Decisiontree"
+    ]
+}
