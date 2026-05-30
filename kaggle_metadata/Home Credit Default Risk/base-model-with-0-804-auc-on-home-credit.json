@@ -1,5 +1,6 @@
 {
     "model": [
         "Lightgbm"
-    ]
+    ],
+    "link":"https://github.com/byungil-an/kaggle_codelist_for_ML/blob/2dbad44920d9f12936f2f0477f4e7c9fd4af0fc9/kaggle_code/Home%20Credit%20Default%20Risk/base-model-with-0-804-auc-on-home-credit.ipynb"
 }

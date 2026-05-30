@@ -1,5 +1,6 @@
 {
     "model": [
         "Pytorch"
-    ]
+    ],
+    "link":"https://github.com/byungil-an/kaggle_codelist_for_ML/blob/2dbad44920d9f12936f2f0477f4e7c9fd4af0fc9/kaggle_code/Eedi%20-%20Mining%20Misconceptions%20in%20Mathematics/recall-reranker-logit-72b.ipynb"
 }

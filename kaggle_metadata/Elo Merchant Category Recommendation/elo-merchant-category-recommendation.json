@@ -3,5 +3,6 @@
         "Lightgbm",
         "XGBoost",
         "Catboost"
-    ]
+    ],
+    "link":"https://github.com/byungil-an/kaggle_codelist_for_ML/blob/2dbad44920d9f12936f2f0477f4e7c9fd4af0fc9/kaggle_code/Elo%20Merchant%20Category%20Recommendation/elo-merchant-category-recommendation.ipynb"
 }

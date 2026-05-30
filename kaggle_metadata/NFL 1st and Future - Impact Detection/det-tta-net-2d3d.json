@@ -1,5 +1,6 @@
 {
     "model": [
         "Pytorch"
-    ]
+    ],
+    "link":"https://github.com/byungil-an/kaggle_codelist_for_ML/blob/2dbad44920d9f12936f2f0477f4e7c9fd4af0fc9/kaggle_code/NFL%201st%20and%20Future%20-%20Impact%20Detection/det-tta-net-2d3d.ipynb"
 }
