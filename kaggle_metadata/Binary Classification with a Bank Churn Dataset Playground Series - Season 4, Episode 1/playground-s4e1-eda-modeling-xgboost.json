@@ -1,0 +1,6 @@
+{
+    "model": [
+        "XGBoost"
+    ],
+    "link": "https://github.com/byungil-an/kaggle_codelist_for_ML/blob/main/kaggle_code/Binary%20Classification%20with%20a%20Bank%20Churn%20Dataset%20Playground%20Series%20-%20Season%204%2C%20Episode%201/playground-s4e1-eda-modeling-xgboost.ipynb"
+}
