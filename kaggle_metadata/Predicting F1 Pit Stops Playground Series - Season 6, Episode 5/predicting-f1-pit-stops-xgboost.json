@@ -1,0 +1,6 @@
+{
+    "model": [
+        "XGBoost"
+    ],
+    "link": "https://github.com/byungil-an/kaggle_codelist_for_ML/blob/main/kaggle_code/Predicting%20F1%20Pit%20Stops%20Playground%20Series%20-%20Season%206%2C%20Episode%205/predicting-f1-pit-stops-xgboost.ipynb"
+}

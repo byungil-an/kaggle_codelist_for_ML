@@ -1,0 +1,10 @@
+{
+    "model": [
+        "CatBoost",
+        "RandomForest",
+        "GradientBoosting",
+        "Ridge",
+        "NeuralNetwork"
+    ],
+    "link": "https://github.com/byungil-an/kaggle_codelist_for_ML/blob/main/kaggle_code/Predicting%20the%20Beats-per-Minute%20of%20Songs%20Playground%20Series%20-%20Season%205%2C%20Episode%209/stacking-vs-hill-climbing-boosters-ridge-nn.ipynb"
+}

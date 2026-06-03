@@ -1,0 +1,7 @@
+{
+    "model": [
+        "Ridge",
+        "XGBoost"
+    ],
+    "link": "https://github.com/byungil-an/kaggle_codelist_for_ML/blob/main/kaggle_code/Predict%20Customer%20Churn%20Playground%20Series%20-%20Season%206%2C%20Episode%203/s6e3-ridge-xgb-n-gram-0-91927-cv.ipynb"
+}
