@@ -1,0 +1,9 @@
+{
+    "model": [
+        "XGBoost",
+        "LightGBM",
+        "CatBoost",
+        "NeuralNetwork"
+    ],
+    "link": "https://github.com/byungil-an/kaggle_codelist_for_ML/blob/main/kaggle_code/Binary%20Classification%20with%20a%20Bank%20Churn%20Dataset%20Playground%20Series%20-%20Season%205%2C%20Episode%208/no-blending-bank-classification-xgb-lgbm-cat-ydf.ipynb"
+}
